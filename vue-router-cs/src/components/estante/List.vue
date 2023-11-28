@@ -8,14 +8,12 @@
             <table class="table table-striped" >
                 <tr>
                     <th scope="col">Nome</th>
-                    <th scope="col">Livros</th>   
                     <th scope="col">Alterar</th>
                     <th scope="col">Remover</th>
                 </tr>                     
                 <tbody>
                     <tr v-for="(e, indice) in estante" :key ="e.nome" :class="{ active: indice == currentIndex }">
                             <td>{{e.nome}}</td>
-                            <td>{{e.livros.nome}}</td>
                             <td><button v-on:click="setCurrentestante(e, indice)" class="btn" type="button">Alterar</button></td>
                             <td><button v-on:click="remEstante(e, indice)" class="btn" type="button">Remover</button></td>
                     </tr>
@@ -30,14 +28,9 @@
                     <div>
                     <label><strong>Nome:</strong></label> {{ currentestante.nome }}
                     </div>
-                    <div>
-                    <label><strong>Livros</strong></label> {{ currentestante.livros.nome }}
-                    </div>
-                    <div>
-                    </div>
 
                     <a class="badge badge-warning"
-                    :href="'/estante/' + currentestante.nome"
+                    :href="'/estante/update' + currentestante.nome"
                     >
                     Edit
                     </a>

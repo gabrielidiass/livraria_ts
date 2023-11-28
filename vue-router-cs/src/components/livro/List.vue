@@ -7,15 +7,15 @@
             <h4>Listagem de livro</h4>
             <table class="table table-striped" >
                 <tr>
+                    <th scope="col">ID</th>
                     <th scope="col">Nome</th>
-                    <th scope="col">Autor</th>   
                     <th scope="col">Alterar</th>
                     <th scope="col">Remover</th>
                 </tr>                     
                 <tbody>
-                    <tr v-for="(l, indice) in livro" :key ="l.nome" :class="{ active: indice == currentIndex }">
+                    <tr v-for="(l, indice) in livro" :key ="l.id" :class="{ active: indice == currentIndex }">
+                            <td>{{l.id}}</td>
                             <td>{{l.nome}}</td>
-                            <td>{{l.autor}}</td>
                             <td><button v-on:click="setCurrentlivro(l, indice)" class="btn" type="button">Alterar</button></td>
                             <td><button v-on:click="remLivro(l, indice)" class="btn" type="button">Remover</button></td>
                     </tr>
@@ -28,16 +28,15 @@
             <div v-if="currentlivro">
                     <h4>Livros</h4>
                     <div>
-                    <label><strong>Nome:</strong></label> {{ currentlivro.nome }}
+                        <label><strong>ID:</strong></label> {{ currentlivro.id }}
                     </div>
+    
                     <div>
-                    <label><strong>Autor</strong></label> {{ currentlivro.autor}}
-                    </div>
-                    <div>
+                        <label><strong>Nome:</strong></label> {{ currentlivro.nome }}
                     </div>
 
                     <a class="badge badge-warning"
-                    :href="'/livro/' + currentlivro.nome"
+                    :href="'/livro/update/' + currentlivro.id"
                     >
                     Edit
                     </a>
@@ -88,16 +87,16 @@
             },
             remLivro(livro){
 
-LivroDataService.delete(livro.id)
-.then(response => {
-    console.log(response.data);
-    this.refreshList();
-})
-.catch(e => {
-    console.log(e);
-});
+            LivroDataService.delete(livro.id)
+            .then(response => {
+                console.log(response.data);
+                this.refreshList();
+            })
+            .catch(e => {
+                console.log(e);
+            });
 
-},
+            },
             refreshList() {
                 this.listarlivro();
                 this.currentTutorial = null;
@@ -107,6 +106,7 @@ LivroDataService.delete(livro.id)
          },
          mounted() {
             this.listarlivro();
+            
          }
  
      }

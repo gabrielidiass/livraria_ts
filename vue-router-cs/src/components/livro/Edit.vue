@@ -1,22 +1,21 @@
 <template>
     <div id="tab_aut">
        <div v-if="currentLivro" class="edit-form">
-        <H1>NAO TESTEI PC RUIM</H1>
             <h3>Livro</h3>
             <form>
                 <div class="form-group">
-                    <label for="inputNome">nome:</label>
+                    <label for="inputNome">Nome:</label>
                     <input type="text" v-model="currentLivro.nome" class="form-control" id="inputNome">
                 </div>
                 <div class="form-group">
-                    <label for="selectAutor">autores:</label>
-                    <select v-model="currentLivro.autores" class="form-control" id="selectAutor" multiple>                                
-                        <option v-for="a in autores" :key ="a.codigo" v-bind:value="a">
-                            {{ a.nome }}
-                            </option>
-                    </select>
-                    
-                </div>                        
+            <label for="selectAutor">Autores:</label>
+            <select v-model="livro.autores" class="form-control" id="selectAutor" multiple>                                
+                <option v-for="a in autores" :key ="a.codigo" v-bind:value="a">
+                    {{ a.nome }}
+                    </option>
+            </select>
+            
+        </div>                        
             </form>
             <button class="badge badge-success" @click="updateLivro">Salvar</button>
             <button class="badge badge-danger mr-2" @click="deleteLivro">Delete</button>
@@ -45,7 +44,6 @@
              return {                
                  currentLivro: null,
                  message: '',
-                 autor: []
              }
          },
          methods: {
@@ -97,7 +95,7 @@
             
             this.message = '';
             this.listAutores();
-            this.getLivro(this.$route.params.nome);
+            this.getLivro(this.$route.params.id);
          }
      }
  </script>
