@@ -14,8 +14,11 @@
                 <tbody>
                     <tr v-for="(e, indice) in estante" :key ="e.nome" :class="{ active: indice == currentIndex }">
                             <td>{{e.nome}}</td>
+
                             <td>{{e.livros.nome}}</td>
                             <td><button v-on:click="setCurrentEstante(e, indice)" class="btn" type="button">Alterar</button></td>
+
+                           
                             <td><button v-on:click="remEstante(e, indice)" class="btn" type="button">Remover</button></td>
                     </tr>
                 </tbody>
@@ -29,6 +32,7 @@
                     <div>
                     <label><strong>Nome:</strong></label> {{ currentEstante.nome }}
                     </div>
+
                     <!-- <div>
                     <label><strong>Livros</strong></label> {{ currentestante.livros.nome }}
                     </div> -->
@@ -37,6 +41,7 @@
 
                     <a class="badge badge-warning"
                     :href="'/estante/update/' + currentEstante.id"
+
                     >
                     Edit
                     </a>

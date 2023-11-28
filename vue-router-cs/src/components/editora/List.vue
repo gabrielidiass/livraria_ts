@@ -9,7 +9,6 @@
                 <tr>
                     <th scope="col">Nome</th>
                     <th scope="col">Cnpj</th>   
-                    <th scope="col">Livros</th>   
                     <th scope="col">Alterar</th>
                     <th scope="col">Remover</th>
                 </tr>                     
@@ -17,7 +16,6 @@
                     <tr v-for="(e, indice) in editora" :key ="e.nome" :class="{ active: indice == currentIndex }">
                             <td>{{e.nome}}</td>
                             <td>{{e.cnpj}}</td>
-                            <td>{{e.livros.nome}}</td>
                             <td><button v-on:click="setCurrenteditora(e, indice)" class="btn" type="button">Alterar</button></td>
                             <td><button v-on:click="remeditora(e, indice)" class="btn" type="button">Remover</button></td>
                     </tr>
@@ -35,12 +33,9 @@
                     <div>
                     <label><strong>CNPJ</strong></label> {{ currenteditora.cnpj }}
                     </div>
-                    <div>
-                    <label><strong>Livros</strong></label> {{ currenteditora.livro.nome }}
-                    </div>
 
                     <a class="badge badge-warning"
-                    :href="'/editora/' + currenteditora.nome"
+                    :href="'/editora/update' + currenteditora.nome"
                     >
                     Edit
                     </a>

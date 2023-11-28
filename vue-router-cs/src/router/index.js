@@ -81,9 +81,9 @@ const router = new Router({
       component: listLivro    
     },
     {
-      path: '/livro/:nome',
+      path: '/livro/update/:id',
       name: "livro-edit",
-      component: listLivro
+      component: editLivro
     },  
     {
       path: '/livro/delete/',
@@ -102,7 +102,7 @@ const router = new Router({
       component: listAutor    
     },
     {
-      path: '/autor/update/:nome',
+      path: '/autor/update/:id',
       name: "autor-edit",
       component: editAutor
     },
