@@ -97,7 +97,7 @@
             
             this.message = '';
             this.listlivros();
-            this.getEstantes(this.$route.params.nome);
+            this.getEstante(this.$route.params.id);
          }
      }
  </script>

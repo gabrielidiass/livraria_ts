@@ -13,7 +13,7 @@ class EstanteDataService {
     async get(nome){
 
         console.log('EstanteDataService.get: ', nome);
-        return await http.get('/estante'+nome);
+        return await http.get('/estante/'+nome);
     }
 
     async list(){
@@ -31,7 +31,7 @@ class EstanteDataService {
     async update(data){
 
         console.log('EstanteDataService.update: ', data);
-        return await http.post(`/estante/update`, data);
+        return await http.post(`/estante/update/:id`, data);
     }
     
     async create(data){

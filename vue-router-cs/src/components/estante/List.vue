@@ -8,7 +8,6 @@
             <table class="table table-striped" >
                 <tr>
                     <th scope="col">Nome</th>
-                    <th scope="col">Livros</th>   
                     <th scope="col">Alterar</th>
                     <th scope="col">Remover</th>
                 </tr>                     
@@ -16,7 +15,7 @@
                     <tr v-for="(e, indice) in estante" :key ="e.nome" :class="{ active: indice == currentIndex }">
                             <td>{{e.nome}}</td>
                             <td>{{e.livros.nome}}</td>
-                            <td><button v-on:click="setCurrentestante(e, indice)" class="btn" type="button">Alterar</button></td>
+                            <td><button v-on:click="setCurrentEstante(e, indice)" class="btn" type="button">Alterar</button></td>
                             <td><button v-on:click="remEstante(e, indice)" class="btn" type="button">Remover</button></td>
                     </tr>
                 </tbody>
@@ -25,19 +24,19 @@
         </div>
 
         <div class="col-md-6">
-            <div v-if="currentestante">
+            <div v-if="currentEstante">
                     <h4>Estantes</h4>
                     <div>
-                    <label><strong>Nome:</strong></label> {{ currentestante.nome }}
+                    <label><strong>Nome:</strong></label> {{ currentEstante.nome }}
                     </div>
-                    <div>
+                    <!-- <div>
                     <label><strong>Livros</strong></label> {{ currentestante.livros.nome }}
-                    </div>
+                    </div> -->
                     <div>
                     </div>
 
                     <a class="badge badge-warning"
-                    :href="'/estante/' + currentestante.nome"
+                    :href="'/estante/update/' + currentEstante.id"
                     >
                     Edit
                     </a>
@@ -62,7 +61,7 @@
       data() {
              return {
                  estante: [],
-                 currentestante: null,
+                 currentEstante: null,
                  currentIndex: -1
              }
          },
@@ -82,9 +81,9 @@
                     console.log(response);
                 });
             },
-            setCurrentestante(estante, index){
+            setCurrentEstante(estante, index){
 
-                this.currentestante = estante;
+                this.currentEstante = estante;
                 this.currentIndex = index;
             },
             remEstante(estante){

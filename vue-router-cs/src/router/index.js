@@ -124,7 +124,7 @@ const router = new Router({
       component: listEstante    
     },
     {
-      path: '/Estante/:nome',
+      path: '/estante/update/:id',
       name: "Estante-edit",
       component: editEstante
     },
