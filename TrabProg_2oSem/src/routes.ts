@@ -29,7 +29,7 @@ router.put('/autor/update/:nome', AutorController.update);
 router.get('/estante/list', EstanteController.list);
 router.post('/estante/store', EstanteController.store);
 router.delete('/estante/delete/:id', EstanteController.delete);
-router.put('/estante/update', EstanteController.update);
+router.put('/estante/update/:id', EstanteController.update);
 
 
 router.get('/funcionario/list', FuncionarioController.list);
@@ -44,6 +44,7 @@ router.get('/autor/:id', AutorController.find);
 router.get('/estante/:id', EstanteController.find);
 router.get('/funcionario/:id', FuncionarioController.find);
 router.get('/livro/:id', LivroController.find);
+router.get('/autor/find/:id', AutorController.find);
 
 router.get('/autor/find/:nome', AutorController.find);
 
