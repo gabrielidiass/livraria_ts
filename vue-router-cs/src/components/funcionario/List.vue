@@ -4,9 +4,11 @@
       <h4>Listagem de Funcionarios</h4>
       <table class="table table-striped">
         <tr>
+          <th scope="col">ID</th>
           <th scope="col">Nome</th>
           <th scope="col">CPF</th>
           <th scope="col">CTPS</th>
+          <th scope="col">Senha</th>
           <th scope="col">Salário</th>
           <th scope="col">Alterar</th>
           <th scope="col">Remover</th>
@@ -14,16 +16,19 @@
         <tbody>
           <tr
             v-for="(f, indice) in funcionarios"
-            :key="f.nome"
+            :key="f.cpf"
             :class="{ active: indice == currentIndex }"
           >
+          <td>{{ f.id }}</td>
+
             <td>{{ f.nome }}</td>
             <td>{{ f.cpf }}</td>
             <td>{{ f.ctps }}</td>
+            <td>{{ f.senha }}</td>
             <td>{{ f.salario }}</td>
             <td>
               <button
-                v-on:click="setCurrentfuncionario(f, indice)"
+                v-on:click="setCurrentFuncionario(f, indice)"
                 class="btn"
                 type="button"
               >
@@ -45,18 +50,30 @@
     </div>
 
     <div class="col-md-6">
-      <div v-if="currentfuncionario">
+      <div v-if="currentFuncionario">
         <h4>Funcionario</h4>
         <div>
-          <label><strong>Nome:</strong></label> {{ currentfuncionario.nome }}
+          <label><strong>ID:</strong></label> {{ currentFuncionario.id }}
         </div>
         <div>
-          <label><strong>CPF:</strong></label> {{ currentfuncionario.cpf }}
+          <label><strong>Nome:</strong></label> {{ currentFuncionario.nome }}
+        </div>
+        <div>
+          <label><strong>CPF:</strong></label> {{ currentFuncionario.cpf }}
+        </div>
+        <div>
+          <label><strong>CTPS:</strong></label> {{ currentFuncionario.ctps }}
+        </div>
+        <div>
+          <label><strong>Senha:</strong></label> {{ currentFuncionario.senha }}
+        </div>
+        <div>
+          <label><strong>Salário:</strong></label> {{ currentFuncionario.salario }}
         </div>
 
         <a
           class="badge badge-warning"
-          :href="'/funcionario/' + currentfuncionario.nome"
+          :href="'/funcionario/update/' + currentFuncionario.id"
         >
           Edit
         </a>
@@ -79,7 +96,7 @@ export default {
   data() {
     return {
       funcionarios: [],
-      currentfuncionario: null,
+      currentFuncionario: null,
       currentIndex: 0
     };
   },
@@ -100,8 +117,8 @@ export default {
           console.log(response);
         });
     },
-    setCurrentfuncionario(funcionario, index) {
-      this.currentfuncionario = funcionario;
+    setCurrentFuncionario(funcionario, index) {
+      this.currentFuncionario = funcionario;
       this.currentIndex = index;
     },
     remfuncionario(funcionario) {

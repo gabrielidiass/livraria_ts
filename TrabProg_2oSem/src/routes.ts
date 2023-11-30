@@ -35,7 +35,7 @@ router.put('/estante/update/:id', EstanteController.update);
 router.get('/funcionario/list', FuncionarioController.list);
 router.post('/funcionario/store', FuncionarioController.store);
 router.delete('/funcionario/delete/:id', FuncionarioController.delete);
-router.put('/funcionario/update/:id', FuncionarioController.update);
+router.put('/funcionario/update/:cpf', FuncionarioController.update);
 router.post('/loginfuncionario', FuncionarioController.login);
 
 
