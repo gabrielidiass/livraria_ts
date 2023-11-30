@@ -8,7 +8,7 @@
                     <label for="inputNome">nome:</label>
                     <input type="text" v-model="currentEstante.nome" class="form-control" id="inputNome">
                 </div>
-                <!-- <div class="form-group">
+                <div class="form-group">
                     <label for="selectAutor">Livros:</label>
                     <select v-model="currentEstante.livros" class="form-control" id="selectAutor" multiple>                                
                         <option v-for="l in livros" :key ="l.codigo" v-bind:value="l">
@@ -16,7 +16,7 @@
                             </option>
                     </select>
                     
-                </div>                         -->
+                </div>                        
             </form>
             <button class="badge badge-success" @click="updateEstante">Salvar</button>
             <button class="badge badge-danger mr-2" @click="deleteEstante">Delete</button>
@@ -70,9 +70,7 @@
                 });               
             },
             updateEstante(){
-            console.log(this.currentEstante.id);
-                EstanteDataService.update(this.currentEstante.id)
-
+                EstanteDataService.update(this.currentEstante)
                 .then(response => {
                     console.log('EstanteDataService.update');
                     this.message = 'Estante alterado com sucesso !';
@@ -99,7 +97,7 @@
             
             this.message = '';
             this.listlivros();
-            this.getEstante(this.$route.params.id);
+            this.getEstantes(this.$route.params.nome);
          }
      }
  </script>

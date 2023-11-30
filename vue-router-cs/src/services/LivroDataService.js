@@ -17,13 +17,13 @@ class LivroDataService {
         console.log('LivroDataService.delete: ', data);
         return await http.delete(`/livro/delete/`+data);
     }
+    async update(data){
+        console.log('LivroDataService.update: ', data);
+        return await http.post(`/update/livro`, data);
+    }
     async create(data){
         console.log('LivroDataService.create: ', data);
         return await http.post(`/livro/store`, data);
     }  
-    async update(data){
-        console.log('LivroDataService.update: ', data);
-        return await http.post(`/livro/update/:id`, data);
-    }
 }
 export default new LivroDataService();

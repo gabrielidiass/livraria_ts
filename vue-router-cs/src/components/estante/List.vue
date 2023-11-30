@@ -8,17 +8,15 @@
             <table class="table table-striped" >
                 <tr>
                     <th scope="col">Nome</th>
+                    <th scope="col">Livros</th>   
                     <th scope="col">Alterar</th>
                     <th scope="col">Remover</th>
                 </tr>                     
                 <tbody>
                     <tr v-for="(e, indice) in estante" :key ="e.nome" :class="{ active: indice == currentIndex }">
                             <td>{{e.nome}}</td>
-
                             <td>{{e.livros.nome}}</td>
-                            <td><button v-on:click="setCurrentEstante(e, indice)" class="btn" type="button">Alterar</button></td>
-
-                           
+                            <td><button v-on:click="setCurrentestante(e, indice)" class="btn" type="button">Alterar</button></td>
                             <td><button v-on:click="remEstante(e, indice)" class="btn" type="button">Remover</button></td>
                     </tr>
                 </tbody>
@@ -27,21 +25,19 @@
         </div>
 
         <div class="col-md-6">
-            <div v-if="currentEstante">
+            <div v-if="currentestante">
                     <h4>Estantes</h4>
                     <div>
-                    <label><strong>Nome:</strong></label> {{ currentEstante.nome }}
+                    <label><strong>Nome:</strong></label> {{ currentestante.nome }}
                     </div>
-
-                    <!-- <div>
+                    <div>
                     <label><strong>Livros</strong></label> {{ currentestante.livros.nome }}
-                    </div> -->
+                    </div>
                     <div>
                     </div>
 
                     <a class="badge badge-warning"
-                    :href="'/estante/update/' + currentEstante.id"
-
+                    :href="'/estante/' + currentestante.nome"
                     >
                     Edit
                     </a>
@@ -66,7 +62,7 @@
       data() {
              return {
                  estante: [],
-                 currentEstante: null,
+                 currentestante: null,
                  currentIndex: -1
              }
          },
@@ -86,9 +82,9 @@
                     console.log(response);
                 });
             },
-            setCurrentEstante(estante, index){
+            setCurrentestante(estante, index){
 
-                this.currentEstante = estante;
+                this.currentestante = estante;
                 this.currentIndex = index;
             },
             remEstante(estante){

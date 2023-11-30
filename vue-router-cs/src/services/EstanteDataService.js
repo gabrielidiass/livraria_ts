@@ -10,9 +10,10 @@ class EstanteDataService {
         return response;
     }
 
-    async get(data){
-        console.log('EstanteDataService.get: ', data);
-        return await http.get('/estante/'+ data);
+    async get(nome){
+
+        console.log('EstanteDataService.get: ', nome);
+        return await http.get('/estante'+nome);
     }
 
     async list(){
@@ -21,16 +22,16 @@ class EstanteDataService {
         return await http.get(`/estante/list`);
     }
 
-    async delete(data){
+    async delete(nome){
 
-        console.log('EstanteDataService.delete: ', data);
-        return await http.delete(`/estante/delete/`+data);
+        console.log('EstanteDataService.delete: ', nome);
+        return await http.delete(`/estante/delete/`+nome);
     }
 
     async update(data){
 
         console.log('EstanteDataService.update: ', data);
-        return await http.put(`/estante/update/:id`, data);
+        return await http.post(`/estante/update`, data);
     }
     
     async create(data){
