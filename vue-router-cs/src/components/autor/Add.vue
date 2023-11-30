@@ -1,6 +1,5 @@
 <template>
     <div class="submit-form">
-        <h1>FUNCIONANDO</h1>
       <div v-if="!submitted">       
 
         <div class="form-group">

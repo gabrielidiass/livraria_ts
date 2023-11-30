@@ -1,7 +1,5 @@
 <template>
     <div id="tab_aut">
-     
-
         <div class="col-md-6">
             <h4>Listagem de Funcionarios</h4>
             <table class="table table-striped" >

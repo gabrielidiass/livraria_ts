@@ -1,8 +1,5 @@
 <template>
     <div id="tab_aut">
-     
-        <H1>NAO TESTEI</H1>
-
         <div class="col-md-6">
             <h4>Listagem de Estante</h4>
             <table class="table table-striped" >

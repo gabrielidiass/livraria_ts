@@ -1,6 +1,5 @@
 <template>
    <div id="tab_aut">
-    <h1>FUNCIONANDO</h1>
             <h3>Autenticacação</h3>
             <form>
                 <div class="form-outline mb-4">

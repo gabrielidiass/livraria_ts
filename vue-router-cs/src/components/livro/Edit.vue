@@ -1,7 +1,6 @@
 <template>
     <div id="tab_aut">
        <div v-if="currentLivro" class="edit-form">
-        <H1>NAO TESTEI PC RUIM</H1>
             <h3>Livro</h3>
             <form>
                 <div class="form-group">

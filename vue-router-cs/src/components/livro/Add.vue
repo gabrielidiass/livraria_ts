@@ -1,9 +1,5 @@
 <template>
     <div class="submit-form">
-        <h1>NAO TESTEI
-            CONFIGURADO
-            USAR DE TEMPLATE PRA OUTROS
-        </h1>
       <div v-if="!submitted">       
 
         <div class="form-group">

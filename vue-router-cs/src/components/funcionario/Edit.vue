@@ -1,6 +1,5 @@
 <template>
     <div id="tab_aut">
-     
        <div v-if="currentFuncionario" class="edit-form">
             <h3>Funcionario</h3>
             <form>
