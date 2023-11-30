@@ -3,11 +3,10 @@ import http from "../http-common";
 
 class EditoraDataService {
 
-    async authenticate(data){
+    async get(id){
 
-        console.log('EditoraDataService.authenticate: ', data);
-        const response = await http.post(`/logineditora`, data);
-        return response;
+        console.log('EditoraDataService.get: ', id);
+        return await http.get('/editora/find/'+id);
     }
 
     async get(data){
@@ -31,7 +30,7 @@ class EditoraDataService {
     async update(data){
 
         console.log('EditoraDataService.update: ', data);
-        return await http.post(`/editora/update`, data);
+        return await http.put(`/editora/update/:id`, data);
     }
     
     async create(data){

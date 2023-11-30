@@ -1,24 +1,22 @@
 <template>
     <div id="tab_aut">
      
-        <H1>NAO TESTEI</H1>
-
         <div class="col-md-6">
             <h4>Listagem de Editoras</h4>
             <table class="table table-striped" >
                 <tr>
+                    <th scope="col">ID</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Cnpj</th>   
-                    <th scope="col">Livros</th>   
                     <th scope="col">Alterar</th>
                     <th scope="col">Remover</th>
                 </tr>                     
                 <tbody>
-                    <tr v-for="(e, indice) in editora" :key ="e.nome" :class="{ active: indice == currentIndex }">
-                            <td>{{e.nome}}</td>
-                            <td>{{e.cnpj}}</td>
-                            <td>{{e.livros.nome}}</td>
-                            <td><button v-on:click="setCurrenteditora(e, indice)" class="btn" type="button">Alterar</button></td>
+                    <tr v-for="(e, indice) in editora" :key ="e.id" :class="{ active: indice == currentIndex }">
+                        <td>{{e.id}}</td>
+                        <td>{{e.nome}}</td>
+                        <td>{{e.cnpj}}</td>
+                            <td><button v-on:click="setCurrentEditora(e, indice)" class="btn" type="button">Alterar</button></td>
                             <td><button v-on:click="remeditora(e, indice)" class="btn" type="button">Remover</button></td>
                     </tr>
                 </tbody>
@@ -27,20 +25,20 @@
         </div>
 
         <div class="col-md-6">
-            <div v-if="currenteditora">
+            <div v-if="currentEditora">
                     <h4>Editoras</h4>
                     <div>
-                    <label><strong>Nome:</strong></label> {{ currenteditora.nome }}
+                    <label><strong>ID:</strong></label> {{ currentEditora.id }}
+                    </div>    
+                    <div>
+                    <label><strong>Nome:</strong></label> {{ currentEditora.nome }}
                     </div>
                     <div>
-                    <label><strong>CNPJ</strong></label> {{ currenteditora.cnpj }}
-                    </div>
-                    <div>
-                    <label><strong>Livros</strong></label> {{ currenteditora.livro.nome }}
+                    <label><strong>CNPJ</strong></label> {{ currentEditora.cnpj }}
                     </div>
 
                     <a class="badge badge-warning"
-                    :href="'/editora/' + currenteditora.nome"
+                    :href="'/editora/update/' + currentEditora.id"
                     >
                     Edit
                     </a>
@@ -65,7 +63,7 @@
       data() {
              return {
                  editora: [],
-                 currenteditora: null,
+                 currentEditora: null,
                  currentIndex: 0
              }
          },
@@ -85,9 +83,9 @@
                     console.log(response);
                 });
             },
-            setCurrenteditora(editora, index){
+            setCurrentEditora(editora, index){
 
-                this.currenteditora = editora;
+                this.currentEditora = editora;
                 this.currentIndex = index;
             },
             remeditora(editora){

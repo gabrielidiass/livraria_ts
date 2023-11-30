@@ -3,3 +3,5 @@ ALTER TABLE "tb_livro" DROP CONSTRAINT "UQ_8c5dd5ed7c3b29dace592031908" CASCADE;
 ana
 
 versao mais
+
+dia 30 - 17:52

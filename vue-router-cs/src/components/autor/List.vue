@@ -90,16 +90,16 @@
             },
             remAutor(Autor, index){
 
-AutorDataService.delete(Autor.id)
-.then(response => {
-    console.log(response.data);
-    this.refreshList();
-})
-.catch(e => {
-    console.log(e);
-});
+                AutorDataService.delete(Autor.id)
+                .then(response => {
+                    console.log(response.data);
+                    this.refreshList();
+                })
+                .catch(e => {
+                    console.log(e);
+                });
 
-},
+            },
             refreshList() {
                 this.listarautor();
                 this.currentTutorial = null;

@@ -7,15 +7,15 @@
             <h4>Listagem de Estante</h4>
             <table class="table table-striped" >
                 <tr>
+                    <th scope="col">ID</th>
                     <th scope="col">Nome</th>
-                    <th scope="col">Livros</th>   
                     <th scope="col">Alterar</th>
                     <th scope="col">Remover</th>
                 </tr>                     
                 <tbody>
-                    <tr v-for="(e, indice) in estante" :key ="e.nome" :class="{ active: indice == currentIndex }">
+                    <tr v-for="(e, indice) in estante" :key ="e.id" :class="{ active: indice == currentIndex }">
+                            <td>{{e.id}}</td>
                             <td>{{e.nome}}</td>
-                            <td>{{e.livros.nome}}</td>
                             <td><button v-on:click="setCurrentestante(e, indice)" class="btn" type="button">Alterar</button></td>
                             <td><button v-on:click="remEstante(e, indice)" class="btn" type="button">Remover</button></td>
                     </tr>
@@ -28,16 +28,16 @@
             <div v-if="currentestante">
                     <h4>Estantes</h4>
                     <div>
-                    <label><strong>Nome:</strong></label> {{ currentestante.nome }}
+                    <label><strong>ID:</strong></label> {{ currentestante.indice }}
                     </div>
                     <div>
-                    <label><strong>Livros</strong></label> {{ currentestante.livros.nome }}
+                    <label><strong>Nome</strong></label> {{ currentestante.nome }}
                     </div>
                     <div>
                     </div>
 
                     <a class="badge badge-warning"
-                    :href="'/estante/' + currentestante.nome"
+                    :href="'/estante/update/' + currentestante.nome"
                     >
                     Edit
                     </a>
