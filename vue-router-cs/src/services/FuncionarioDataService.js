@@ -10,10 +10,10 @@ class FuncionarioDataService {
         return response;
     }
 
-    async get(nome){
+    async get(id){
 
-        console.log('FuncionarioDataService.get: ', nome);
-        return await http.get('/funcionario'+nome);
+        console.log('FuncionarioDataService.get: ', id);
+        return await http.get('/funcionario/'+id);
     }
 
     async list(){
@@ -31,7 +31,7 @@ class FuncionarioDataService {
     async update(data){
 
         console.log('FuncionarioDataService.update: ', data);
-        return await http.post(`/funcionario/update`, data);
+        return await http.post(`/funcionario/update/:cpf`, data);
     }
     
     async create(data){

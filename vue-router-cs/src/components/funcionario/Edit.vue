@@ -78,8 +78,8 @@ export default {
     };
   },
   methods: {
-    getFuncionario(cpf) {
-      FuncionarioDataService.get(cpf)
+    getFuncionario(id) {
+      FuncionarioDataService.get(id)
         .then(response => {
           console.log(response.data);
           this.currentFuncionario = response.data;
@@ -114,7 +114,7 @@ export default {
   },
   mounted() {
     this.message = "";
-    this.getFuncionarios(this.$route.params.cpf);
+    this.getFuncionario(this.$route.params.id);
   }
 };
 </script>
