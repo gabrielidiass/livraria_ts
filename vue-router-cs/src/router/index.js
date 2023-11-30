@@ -1,28 +1,28 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import login from  '@/components/Login'
-import home from  '@/components/Home'
+import login from '@/components/Login'
+import home from '@/components/Home'
 
-import listFuncionarios from  '@/components/funcionario/List'
-import editFuncionario   from  '@/components/funcionario/Edit'
-import novoFuncionario   from  '@/components/funcionario/Add'
+import listFuncionarios from '@/components/funcionario/List'
+import editFuncionario from '@/components/funcionario/Edit'
+import novoFuncionario from '@/components/funcionario/Add'
 
-import listEditora from  '@/components/editora/List'
-import editEditora   from  '@/components/editora/Edit'
-import novoEditora   from  '@/components/editora/Add'
+import listEditora from '@/components/editora/List'
+import editEditora from '@/components/editora/Edit'
+import novoEditora from '@/components/editora/Add'
 
-import listLivro from  '@/components/livro/List'
-import editLivro   from  '@/components/livro/Edit'
-import novoLivro   from  '@/components/livro/Add'
+import listLivro from '@/components/livro/List'
+import editLivro from '@/components/livro/Edit'
+import novoLivro from '@/components/livro/Add'
 
-import listAutor from  '@/components/autor/List'
-import editAutor   from  '@/components/autor/Edit'
-import novoAutor   from  '@/components/autor/Add'
+import listAutor from '@/components/autor/List'
+import editAutor from '@/components/autor/Edit'
+import novoAutor from '@/components/autor/Add'
 
-import listEstante from  '@/components/estante/List'
-import editEstante   from  '@/components/estante/Edit'
-import novoEstante   from  '@/components/estante/Add'
+import listEstante from '@/components/estante/List'
+import editEstante from '@/components/estante/Edit'
+import novoEstante from '@/components/estante/Add'
 
 
 
@@ -46,7 +46,7 @@ const router = new Router({
     {
       path: '/funcionario',
       name: 'funcionarios-list',
-      component: listFuncionarios    
+      component: listFuncionarios
     },
     {
       path: '/funcionario/update/:id',
@@ -62,7 +62,7 @@ const router = new Router({
     {
       path: '/editora',
       name: 'editoras-list',
-      component: listEditora    
+      component: listEditora
     },
     {
       path: '/editora/update/:id',
@@ -78,13 +78,13 @@ const router = new Router({
     {
       path: '/livro',
       name: 'livros-list',
-      component: listLivro    
+      component: listLivro
     },
     {
       path: '/livro/update/:id',
       name: "livro-edit",
       component: editLivro
-    },  
+    },
     {
       path: '/livro/delete/',
       name: "livro-rem",
@@ -99,7 +99,7 @@ const router = new Router({
     {
       path: '/autor',
       name: 'autores-list',
-      component: listAutor    
+      component: listAutor
     },
     {
       path: '/autor/update/:nome',
@@ -111,7 +111,7 @@ const router = new Router({
       name: "autor-add",
       component: novoAutor
     },
-  
+
     {
       path: '/autor/delete/',
       name: "autor-delete",
@@ -121,14 +121,14 @@ const router = new Router({
     {
       path: '/estante',
       name: 'estantes-list',
-      component: listEstante    
+      component: listEstante
     },
     {
       path: '/Estante/update/:id',
       name: "Estante-edit",
       component: editEstante
     },
-    
+
     {
       path: '/addestante',
       name: "estante-add",
@@ -139,13 +139,13 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-    
-  if (to.name !== 'login' && !localStorage.getItem('authUser')){
-     next({name: 'login'})
+
+  if (to.name !== 'login' && !localStorage.getItem('authUser')) {
+    next({ name: 'login' })
   } else {
-     next()
+    next()
   }
-  
+
 })
 
 export default router;
