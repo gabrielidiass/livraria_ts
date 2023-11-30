@@ -16,7 +16,7 @@
                     <tr v-for="(e, indice) in estante" :key ="e.id" :class="{ active: indice == currentIndex }">
                             <td>{{e.id}}</td>
                             <td>{{e.nome}}</td>
-                            <td><button v-on:click="setCurrentestante(e, indice)" class="btn" type="button">Alterar</button></td>
+                            <td><button v-on:click="setCurrentEstante(e, indice)" class="btn" type="button">Alterar</button></td>
                             <td><button v-on:click="remEstante(e, indice)" class="btn" type="button">Remover</button></td>
                     </tr>
                 </tbody>
@@ -25,19 +25,19 @@
         </div>
 
         <div class="col-md-6">
-            <div v-if="currentestante">
+            <div v-if="currentEstante">
                     <h4>Estantes</h4>
                     <div>
-                    <label><strong>ID:</strong></label> {{ currentestante.indice }}
+                    <label><strong>ID:</strong></label> {{ currentEstante.indice }}
                     </div>
                     <div>
-                    <label><strong>Nome</strong></label> {{ currentestante.nome }}
+                    <label><strong>Nome</strong></label> {{ currentEstante.nome }}
                     </div>
                     <div>
                     </div>
 
                     <a class="badge badge-warning"
-                    :href="'/estante/update/' + currentestante.nome"
+                    :href="'/estante/update/' + currentEstante.id"
                     >
                     Edit
                     </a>
@@ -62,7 +62,7 @@
       data() {
              return {
                  estante: [],
-                 currentestante: null,
+                 currentEstante: null,
                  currentIndex: -1
              }
          },
@@ -82,9 +82,9 @@
                     console.log(response);
                 });
             },
-            setCurrentestante(estante, index){
+            setCurrentEstante(estante, index){
 
-                this.currentestante = estante;
+                this.currentEstante = estante;
                 this.currentIndex = index;
             },
             remEstante(estante){

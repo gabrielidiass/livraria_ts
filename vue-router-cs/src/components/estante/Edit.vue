@@ -5,7 +5,7 @@
             <h3>Estante</h3>
             <form>
                 <div class="form-group">
-                    <label for="inputNome">nome:</label>
+                    <label for="inputNome">Nome:</label>
                     <input type="text" v-model="currentEstante.nome" class="form-control" id="inputNome">
                 </div>
                 <div class="form-group">
@@ -49,8 +49,8 @@
              }
          },
          methods: {
-            getEstante(nome){
-                EstanteDataService.get(nome)
+            getEstante(id){
+                EstanteDataService.get(id)
                 .then(response => {
                     console.log(response.data);
                     this.currentEstante = response.data;
@@ -96,8 +96,7 @@
          mounted() {
             
             this.message = '';
-            this.listlivros();
-            this.getEstantes(this.$route.params.nome);
+            this.getEstante(this.$route.params.id);
          }
      }
  </script>

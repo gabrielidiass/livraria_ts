@@ -3,17 +3,11 @@ import http from "../http-common";
 
 class EstanteDataService {
 
-    async authenticate(data){
 
-        console.log('EstanteDataService.authenticate: ', data);
-        const response = await http.post(`/loginestante`, data);
-        return response;
-    }
+    async get(id){
 
-    async get(nome){
-
-        console.log('EstanteDataService.get: ', nome);
-        return await http.get('/estante'+nome);
+        console.log('EstanteDataService.get: ', id);
+        return await http.get('/estante/'+id);
     }
 
     async list(){
@@ -31,7 +25,7 @@ class EstanteDataService {
     async update(data){
 
         console.log('EstanteDataService.update: ', data);
-        return await http.post(`/estante/update`, data);
+        return await http.put(`/estante/update/:id`, data);
     }
     
     async create(data){

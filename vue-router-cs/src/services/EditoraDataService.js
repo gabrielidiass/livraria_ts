@@ -12,7 +12,7 @@ class EditoraDataService {
     async get(data){
 
         console.log('EditoraDataService.get: ', data);
-        return await http.get('/editora'+data);
+        return await http.get('/editora/'+data);
     }
 
     async list(){

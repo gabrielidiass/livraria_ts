@@ -37,7 +37,7 @@
   
       <div v-else>
         <h4>Dados enviados com sucesso !</h4>
-        <button class="btn btn-success" @click="newestante">Novo</button>
+        <button class="btn btn-success" @click="newEstante">Novo</button>
         <router-link to="/estante" class="btn btn-success">Voltar</router-link>
       </div>
     </div>

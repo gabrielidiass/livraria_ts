@@ -1,6 +1,7 @@
 <template>
     <div id="tab_aut">
        <div v-if="currentAutor" class="edit-form">
+        <H1>NAO TESTEI PC RUIM</H1>
             <h3>Autor</h3>
             <form>
                 <div class="form-group">
@@ -14,6 +15,7 @@
 
             </form>
             <button class="badge badge-success" @click="updateAutor">Salvar</button>
+            <button class="badge badge-danger mr-2" @click="deleteAutor">Delete</button>
             <button class="badge badge-danger mr-2" @click="voltar">Voltar</button>
 
             
@@ -23,6 +25,7 @@
        <div v-else>
             <br />
             <p>Please click on a Autor...</p>
+            <h1>não deu</h1>
         </div>
 
                                           
@@ -61,20 +64,20 @@
                     console.log(e);
                 })
             },
-        //     deleteAutor(){
-        //         AutorDataService.delete(this.currentAutor.nome)
-        //         .then(response => {
-        //             console.log(response.data);
-        //             this.$router.push({ name: "autores-list" });
-        //         })
-        //         .catch(e => {
-        //         console.log(e);
-        //         });
-        //     },
-        //     voltar(){
-        //         this.$router.push({ name: "autores-list" });
-        //     }
-        //  },
+            deleteAutor(){
+                AutorDataService.delete(this.currentAutor.nome)
+                .then(response => {
+                    console.log(response.data);
+                    this.$router.push({ name: "autores-list" });
+                })
+                .catch(e => {
+                console.log(e);
+                });
+            },
+            voltar(){
+                this.$router.push({ name: "autores-list" });
+            }
+         },
          mounted() {
             
             this.message = '';
@@ -83,7 +86,7 @@
             
            
          }
-        }}
+     }
  </script>
     
  <style scoped>

@@ -49,7 +49,7 @@ const router = new Router({
       component: listFuncionarios    
     },
     {
-      path: '/funcionario/:nome',
+      path: '/funcionario/update/:id',
       name: "funcionario-edit",
       component: editFuncionario
     },
@@ -81,7 +81,7 @@ const router = new Router({
       component: listLivro    
     },
     {
-      path: '/livro/:nome',
+      path: '/livro/update/:id',
       name: "livro-edit",
       component: editLivro
     },  
@@ -124,7 +124,7 @@ const router = new Router({
       component: listEstante    
     },
     {
-      path: '/Estante/:nome',
+      path: '/Estante/update/:id',
       name: "Estante-edit",
       component: editEstante
     },

@@ -14,7 +14,7 @@
                                            
             </form>
             <button class="badge badge-success" @click="updateEditora">Salvar</button>
-            <!-- <button class="badge badge-danger mr-2" @click="deleteEditora">Delete</button> -->
+            <button class="badge badge-danger mr-2" @click="deleteEditora">Delete</button>
             <button class="badge badge-danger mr-2" @click="voltar">Voltar</button>
 
             
@@ -63,19 +63,19 @@
                     console.log(e);
                 })
             },
-            // deleteEditora(){
-            //     EditoraDataService.delete(this.currentTutorial.nome)
-            //     .then(response => {
-            //         console.log(response.data);
-            //         this.$router.push({ name: "editoras-list" });
-            //     })
-            //     .catch(e => {
-            //     console.log(e);
-            //     });
-            // },
-            // voltar(){
-            //     this.$router.push({ name: "editoras-list" });
-            // }
+            deleteEditora(){
+                EditoraDataService.delete(this.currentTutorial.nome)
+                .then(response => {
+                    console.log(response.data);
+                    this.$router.push({ name: "editoras-list" });
+                })
+                .catch(e => {
+                console.log(e);
+                });
+            },
+            voltar(){
+                this.$router.push({ name: "editoras-list" });
+            }
          },
          mounted() {
             
