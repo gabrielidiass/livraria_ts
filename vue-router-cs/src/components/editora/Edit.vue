@@ -21,6 +21,19 @@
             id="inputCnpj"
           />
         </div>
+        <div class="form-group">
+        <label for="selectLivro">Livros:</label>
+        <select
+          v-model="currentEditora.livros"
+          class="form-control"
+          id="selectLivro"
+          multiple
+        >
+          <option v-for="l in livros" :key="l.codigo" v-bind:value="l">
+            {{ l.nome }}
+          </option>
+        </select>
+      </div>
       </form>
       <button class="badge badge-success" @click="updateEditora">Salvar</button>
       <button class="badge badge-danger mr-2" @click="deleteEditora">
@@ -86,6 +99,7 @@ export default {
   mounted() {
     this.message = "";
     this.getEditora(this.$route.params.id);
+    console.log(currentEditora);
   }
 };
 </script>
