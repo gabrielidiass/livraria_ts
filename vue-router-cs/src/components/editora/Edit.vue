@@ -29,7 +29,7 @@
           id="selectLivro"
           multiple
         >
-          <option v-for="l in livros" :key="l.codigo" v-bind:value="l">
+          <option v-for="l in currentEditora.livros" :key="l.codigo" v-bind:value="l">
             {{ l.nome }}
           </option>
         </select>
@@ -65,8 +65,8 @@ export default {
     getEditora(id) {
       EditoraDataService.get(id)
         .then(response => {
-          console.log(response.data);
           this.currentEditora = response.data;
+          console.log(this.currentEditora.livros);
         })
         .catch(e => {
           console.log(e);
@@ -76,6 +76,7 @@ export default {
       EditoraDataService.update(this.currentEditora)
         .then(response => {
           console.log("EditoraDataService.update");
+
           this.message = "Editora alterado com sucesso !";
         })
         .catch(e => {
@@ -99,7 +100,6 @@ export default {
   mounted() {
     this.message = "";
     this.getEditora(this.$route.params.id);
-    console.log(currentEditora);
   }
 };
 </script>
