@@ -102,14 +102,14 @@ export default {
       FuncionarioDataService.delete(this.currentTutorial.cpf)
         .then(response => {
           console.log(response.data);
-          this.$router.push({ name: "Funcionarioes-list" });
+          this.$router.push({ name: "funcionarios-list" });
         })
         .catch(e => {
           console.log(e);
         });
     },
     voltar() {
-      this.$router.push({ name: "Funcionarios-list" });
+      this.$router.push({ name: "funcionarios-list" });
     }
   },
   mounted() {

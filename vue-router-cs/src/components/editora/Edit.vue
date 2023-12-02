@@ -16,7 +16,7 @@
           <label for="inputCnpj">CNPJ:</label>
           <input
             type="text"
-            v-model="currentEditora.cpnj"
+            v-model="currentEditora.cnpj"
             class="form-control"
             id="inputCnpj"
           />
