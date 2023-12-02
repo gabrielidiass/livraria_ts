@@ -4,7 +4,6 @@
       <h4>Listagem de Funcionarios</h4>
       <table class="table table-striped">
         <tr>
-          <th scope="col">ID</th>
           <th scope="col">Nome</th>
           <th scope="col">CPF</th>
           <th scope="col">CTPS</th>
@@ -19,8 +18,7 @@
             :key="f.cpf"
             :class="{ active: indice == currentIndex }"
           >
-          <td>{{ f.id }}</td>
-
+          
             <td>{{ f.nome }}</td>
             <td>{{ f.cpf }}</td>
             <td>{{ f.ctps }}</td>

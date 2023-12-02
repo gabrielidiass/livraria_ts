@@ -4,7 +4,6 @@
       <h4>Listagem de livro</h4>
       <table class="table table-striped">
         <tr>
-          <th scope="col">ID</th>
           <th scope="col">Nome</th>
           <th scope="col">Alterar</th>
           <th scope="col">Remover</th>
@@ -15,7 +14,7 @@
             :key="l.id"
             :class="{ active: indice == currentIndex }"
           >
-            <td>{{ l.id }}</td>
+           
             <td>{{ l.nome }}</td>
             <td>
               <button

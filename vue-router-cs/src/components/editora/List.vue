@@ -4,7 +4,6 @@
       <h4>Listagem de Editoras</h4>
       <table class="table table-striped">
         <tr>
-          <th scope="col">ID</th>
           <th scope="col">Nome</th>
           <th scope="col">Cnpj</th>
           <th scope="col">Alterar</th>
@@ -16,7 +15,6 @@
             :key="e.id"
             :class="{ active: indice == currentIndex }"
           >
-            <td>{{ e.id }}</td>
             <td>{{ e.nome }}</td>
             <td>{{ e.cnpj }}</td>
             <td>

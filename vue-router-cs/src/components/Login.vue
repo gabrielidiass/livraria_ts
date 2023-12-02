@@ -59,7 +59,7 @@ export default {
           );
           if (response.status == 201 || response.status == 200) {
             alert(
-              "Funcionario " + response.data.cpf + " authenticate com sucesso"
+              "Bem vindo(a) " + response.data.nome 
             );
 
             this.setAuthenticated({ cpf: response.data.cpf });
