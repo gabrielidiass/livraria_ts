@@ -8,7 +8,7 @@
           <th scope="col">Nome</th>
           <th scope="col">CPF</th>
           <th scope="col">CTPS</th>
-          <th scope="col">Senha</th>
+      
           <th scope="col">Salário</th>
           <th scope="col">Alterar</th>
           <th scope="col">Remover</th>
@@ -24,7 +24,6 @@
             <td>{{ f.nome }}</td>
             <td>{{ f.cpf }}</td>
             <td>{{ f.ctps }}</td>
-            <td>{{ f.senha }}</td>
             <td>{{ f.salario }}</td>
             <td>
               <button

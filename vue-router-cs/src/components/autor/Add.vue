@@ -19,14 +19,6 @@
           id="inputNacionalidade"
         />
       </div>
-      <div class="form-group">
-            <label for="selectLivros">Livros:</label>
-            <select v-model="autor.livros" class="form-control" id="selectLivro" multiple>                                
-                <option v-for="l in livros" :key ="l.codigo" v-bind:value="l">
-                    {{ l.nome }}
-                    </option>
-            </select>
-        </div> 
       <button @click="saveAutor" class="btn btn-success">Salvar</button>
       <router-link to="/autores" class="btn btn-success">Voltar</router-link>
     </div>
@@ -41,7 +33,6 @@
 
 <script>
 import AutorDataService from "../../services/AutorDataService";
-import LivroDataService from "../../services/LivroDataService";
 export default {
   name: "addAutor",
   data() {
@@ -49,8 +40,7 @@ export default {
       autor: {
         indice: "",
         nome: "",
-        nacionalidade: "",
-        livros: []
+        nacionalidade: ""
       },
       submitted: false,
       patentes: []
@@ -79,20 +69,9 @@ export default {
       this.submitted = false;
       this.autor = {  };
     },
-    listPatentes() {
-      LivroDataService.list().then(response =>{
-      for (let j of response.data){
-        this.livros.push(j);
-      }
-      }).catch(response => {
-        alert('Não conectou no serviço PatenteDataService.list');
-                console.log(response);
-      })
-    }
+    
   }, 
-  mounted(){
-    this.listLivros();
-  }
+ 
 };
 </script>
 <style>
