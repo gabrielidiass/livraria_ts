@@ -4,7 +4,7 @@ gabi
 
 problemas:
 
-ao adicionar um autor, o botão voltar nao volta para a listagem de autores
+ao adicionar um autor, o botão voltar nao volta para a listagem de autores FEITO
 nao puxa os livros ao editar estante
-após editar editora, o botão de voltar nao volta pra listagem
-excluir botoes de voltar do edit
+após editar editora, o botão de voltar nao volta pra listagem FEITO
+excluir botoes de voltar do edit FEITO

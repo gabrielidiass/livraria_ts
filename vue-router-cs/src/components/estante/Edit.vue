@@ -27,9 +27,9 @@
         </div>
       </form>
       <button class="badge badge-success" @click="updateEstante">Salvar</button>
-      <button class="badge badge-danger mr-2" @click="deleteEstante">
+      <!-- <button class="badge badge-danger mr-2" @click="deleteEstante">
         Delete
-      </button>
+      </button> -->
       <button class="badge badge-danger mr-2" @click="voltar">Voltar</button>
 
       <p>{{ message }}</p>
@@ -89,18 +89,27 @@ export default {
           console.log(e);
         });
     },
-    deleteEstante() {
-      EstanteDataService.delete(this.currentTutorial.nome)
-        .then(response => {
-          console.log(response.data);
-          this.$router.push({ name: "estantes-list" });
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    },
+    // deleteEstante() {
+    //   EstanteDataService.delete(this.currentTutorial.nome)
+    //     .then(response => {
+    //       console.log(response.data);
+    //       this.$router.push({ name: "estantes-list" });
+    //     })
+    //     .catch(e => {
+    //       console.log(e);
+    //     });
+    // },
+    // voltar() {
+    //   this.$router.push({ name: "estantes-list" });
+    // }
     voltar() {
-      this.$router.push({ name: "estantes-list" });
+      const targetRoute = { name: "estantes-list" }; // Supondo que a rota seja "estantes-list"
+      if (
+        this.$route.name !== targetRoute.name ||
+        JSON.stringify(this.$route.params) !== JSON.stringify(targetRoute.params)
+      ) {
+        this.$router.push(targetRoute);
+      }
     }
   },
   mounted() {

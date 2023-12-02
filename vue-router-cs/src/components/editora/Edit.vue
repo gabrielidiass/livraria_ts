@@ -36,9 +36,9 @@
       </div>
       </form>
       <button class="badge badge-success" @click="updateEditora">Salvar</button>
-      <button class="badge badge-danger mr-2" @click="deleteEditora">
+      <!-- <button class="badge badge-danger mr-2" @click="deleteEditora">
         Delete
-      </button>
+      </button> -->
       <button class="badge badge-danger mr-2" @click="voltar">Voltar</button>
 
       <p>{{ message }}</p>
@@ -83,18 +83,27 @@ export default {
           console.log(e);
         });
     },
-    deleteEditora() {
-      EditoraDataService.delete(this.currentTutorial.nome)
-        .then(response => {
-          console.log(response.data);
-          this.$router.push({ name: "editoras-list" });
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    },
+    // deleteEditora() {
+    //   EditoraDataService.delete(this.currentTutorial.nome)
+    //     .then(response => {
+    //       console.log(response.data);
+    //       this.$router.push({ name: "editoras-list" });
+    //     })
+    //     .catch(e => {
+    //       console.log(e);
+    //     });
+    // },
+    // voltar() {
+    //   this.$router.push({ name: "editoras-list" });
+    // }
     voltar() {
-      this.$router.push({ name: "editoras-list" });
+      const targetRoute = { name: "editoras-list" }; // Supondo que a rota seja "editoras-list"
+      if (
+        this.$route.name !== targetRoute.name ||
+        JSON.stringify(this.$route.params) !== JSON.stringify(targetRoute.params)
+      ) {
+        this.$router.push(targetRoute);
+      }
     }
   },
   mounted() {
