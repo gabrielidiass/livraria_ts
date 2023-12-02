@@ -53,9 +53,9 @@
       <button class="badge badge-success" @click="updateFuncionario">
         Salvar
       </button>
-      <button class="badge badge-danger mr-2" @click="deleteFuncionario">
+      <!-- <button class="badge badge-danger mr-2" @click="deleteFuncionario">
         Delete
-      </button>
+      </button> -->
       <button class="badge badge-danger mr-2" @click="voltar">Voltar</button>
 
       <p>{{ message }}</p>
@@ -98,19 +98,28 @@ export default {
           console.log(e);
         });
     },
-    deleteFuncionario() {
-      FuncionarioDataService.delete(this.currentTutorial.cpf)
-        .then(response => {
-          console.log(response.data);
-          this.$router.push({ name: "funcionarios-list" });
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    },
+    // deleteFuncionario() {
+    //   FuncionarioDataService.delete(this.currentTutorial.cpf)
+    //     .then(response => {
+    //       console.log(response.data);
+    //       this.$router.push({ cpf: "funcionarios-list" });
+    //     })
+    //     .catch(e => {
+    //       console.log(e);
+    //     });
+    // },
+    // voltar() {
+    //   this.$router.push({ cpf: "funcionarios-list" });
+    // }
     voltar() {
-      this.$router.push({ name: "funcionarios-list" });
-    }
+  const targetRoute = { name: "funcionarios-list" }; // Use o nome da rota em vez de cpf
+  if (
+    this.$route.name !== targetRoute.name ||
+    JSON.stringify(this.$route.params) !== JSON.stringify(targetRoute.params)
+  ) {
+    this.$router.push(targetRoute);
+  }
+}
   },
   mounted() {
     this.message = "";
