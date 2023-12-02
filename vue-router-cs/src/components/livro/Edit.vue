@@ -15,7 +15,7 @@
         <div class="form-group">
           <label for="selectAutor">autores:</label>
           <select
-            v-model="currentLivro.autores"
+            v-model="currentLivro.autor"
             class="form-control"
             id="selectAutor"
             multiple
@@ -50,7 +50,7 @@ export default {
     return {
       currentLivro: null,
       message: "",
-      autor: []
+      autores: []
     };
   },
   methods: {
@@ -71,7 +71,8 @@ export default {
             "Retorno do seviço AutorDataService.list",
             response.status
           );
-          this.autor = response.data;
+          this.autores = response.data;
+          console.log(response.data);
         })
         .catch(response => {
           // error callback
@@ -80,6 +81,7 @@ export default {
         });
     },
     updateLivro() {
+      console.log(this.currentLivro);
       LivroDataService.update(this.currentLivro)
         .then(response => {
           console.log("LivroDataService.update");
@@ -106,7 +108,7 @@ export default {
   mounted() {
     this.message = "";
     this.listAutores();
-    this.getLivro(this.$route.params.nome);
+    this.getLivro(this.$route.params.id);
   }
 };
 </script>

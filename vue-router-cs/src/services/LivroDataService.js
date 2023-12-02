@@ -19,7 +19,7 @@ class LivroDataService {
     }
     async update(data){
         console.log('LivroDataService.update: ', data);
-        return await http.post(`/update/livro`, data);
+        return await http.put(`/livro/update`, data);
     }
     async create(data){
         console.log('LivroDataService.create: ', data);

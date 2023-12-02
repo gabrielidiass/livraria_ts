@@ -13,7 +13,7 @@ const router = Router();
 router.get('/livro/list', LivroController.list);
 router.post('/livro/store', LivroController.store);
 router.delete('/livro/delete/:id', LivroController.delete);
-router.put('/livro/update/:id', LivroController.update);
+router.put('/livro/update', LivroController.update);
 
 
 router.get('/editora/list', EditoraController.list);
