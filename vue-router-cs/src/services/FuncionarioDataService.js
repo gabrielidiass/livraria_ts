@@ -31,7 +31,7 @@ class FuncionarioDataService {
     async update(data){
 
         console.log('FuncionarioDataService.update: ', data);
-        return await http.post(`/funcionario/update/:cpf`, data);
+        return await http.put(`/funcionario/update/:id`, data);
     }
     
     async create(data){
