@@ -16,7 +16,7 @@
           <label for="inputCnpj">CNPJ:</label>
           <input
             type="text"
-            v-model="currentEditora.cpnj"
+            v-model="currentEditora.cnpj"
             class="form-control"
             id="inputCnpj"
           />
@@ -66,7 +66,7 @@ export default {
       EditoraDataService.get(id)
         .then(response => {
           this.currentEditora = response.data;
-          console.log(this.currentEditora.livros);
+          console.log(this.currentEditora.cnpj);
         })
         .catch(e => {
           console.log(e);
