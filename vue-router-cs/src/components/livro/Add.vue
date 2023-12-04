@@ -13,7 +13,7 @@
       <div class="form-group">
         <label for="selectAutor">Autores:</label>
         <select
-          v-model="livro.autores"
+          v-model="livro.autor"
           class="form-control"
           id="selectAutor"
           multiple
@@ -57,7 +57,7 @@ export default {
       livro: {
         indice: "",
         nickname: "",
-        autores: []
+        autor: []
       },
       submitted: false,
       autores: []
@@ -65,9 +65,10 @@ export default {
   },
   methods: {
     saveLivro() {
+    
       var liv = jQuery.extend({}, this.livro); //clona o this.novo_livro e armazena na variavel livro. dessa forma alteracoes em this.novo_livronao irao refletir em jogador.
+      console.log(this.livro);
       if (liv.nome.trim().length > 0) {
-        //Testa se o nome do item é maior que 0
         LivroDataService.create(liv) // cria o item
           .then(response => {
             this.submitted = true; // testa se foi cadastrado

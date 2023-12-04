@@ -43,10 +43,10 @@
       <div v-if="currentlivro">
         <h4>Livros</h4>
         <div>
-          <label><strong>ID:</strong></label> {{ currentlivro.id }}
+          <label><strong>Nome</strong></label> {{ currentlivro.nome }}
         </div>
         <div>
-          <label><strong>Nome</strong></label> {{ currentlivro.nome }}
+          <label><strong>Autores</strong></label> {{ currentlivro.autor[0].nome }}
         </div>
         <div></div>
 
@@ -95,6 +95,7 @@ export default {
     setCurrentlivro(livro, index) {
       this.currentlivro = livro;
       this.currentIndex = index;
+      console.log(livro);
     },
     remLivro(livro) {
       LivroDataService.delete(livro.id)
