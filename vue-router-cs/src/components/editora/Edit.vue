@@ -29,11 +29,12 @@
           id="selectLivro"
           multiple
         >
-          <option v-for="l in currentEditora.livros" :key="l.codigo" v-bind:value="l">
+          <option v-for="l in livros" :key="l.codigo" v-bind:value="l">
             {{ l.nome }}
           </option>
         </select>
       </div>
+      
       </form>
       <button class="badge badge-success" @click="updateEditora">Salvar</button>
       <!-- <button class="badge badge-danger mr-2" @click="deleteEditora">
@@ -51,22 +52,42 @@
 </template>
 <script>
 import EditoraDataService from "../../services/EditoraDataService";
-//  import LivroDataService from '../../services/LivroDataService'
+import LivroDataService from '../../services/LivroDataService'
 
 export default {
   name: "editEditora",
   data() {
     return {
       currentEditora: null,
-      message: ""
+      message: "",
+      livros: []
     };
   },
   methods: {
+    listlivros() {
+      LivroDataService.list()
+        .then(response => {
+          console.log(
+            "Retorno do seviço LivroDataService.list",
+            response.status
+          );
+         
+          this.livros = response.data;
+        })
+        .catch(response => {
+          // error callback
+          alert("Não conectou no serviço LivroDataService.list");
+          console.log(response);
+        });
+
+        console.log(this.livros);
+        console.log("chegou");
+    },
     getEditora(id) {
       EditoraDataService.get(id)
         .then(response => {
           this.currentEditora = response.data;
-          console.log(this.currentEditora.cnpj);
+          console.log(this.currentEditora);
         })
         .catch(e => {
           console.log(e);
@@ -83,19 +104,7 @@ export default {
           console.log(e);
         });
     },
-    // deleteEditora() {
-    //   EditoraDataService.delete(this.currentTutorial.nome)
-    //     .then(response => {
-    //       console.log(response.data);
-    //       this.$router.push({ name: "editoras-list" });
-    //     })
-    //     .catch(e => {
-    //       console.log(e);
-    //     });
-    // },
-    // voltar() {
-    //   this.$router.push({ name: "editoras-list" });
-    // }
+  
     voltar() {
       const targetRoute = { name: "editoras-list" }; // Supondo que a rota seja "editoras-list"
       if (
@@ -109,6 +118,8 @@ export default {
   mounted() {
     this.message = "";
     this.getEditora(this.$route.params.id);
+    this.listlivros();
+    
   }
 };
 </script>

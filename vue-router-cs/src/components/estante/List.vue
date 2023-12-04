@@ -41,11 +41,12 @@
     <div class="col-md-6">
       <div v-if="currentEstante">
         <h4>Estantes</h4>
-        <div>
-          <label><strong>ID:</strong></label> {{ currentEstante.indice }}
-        </div>
+      
         <div>
           <label><strong>Nome</strong></label> {{ currentEstante.nome }}
+        </div>
+        <div>
+          <label><strong>Livros</strong></label> {{ currentEstante.livros[0].nome }}
         </div>
         <div></div>
 
@@ -95,6 +96,7 @@ export default {
     setCurrentEstante(estante, index) {
       this.currentEstante = estante;
       this.currentIndex = index;
+      console.log(estante);
     },
     remEstante(estante) {
       EstanteDataService.delete(estante.id)

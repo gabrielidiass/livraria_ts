@@ -57,8 +57,8 @@ export default {
     getEstante(id) {
       EstanteDataService.get(id)
         .then(response => {
-          console.log(response.data);
           this.currentEstante = response.data;
+          console.log(this.currentEstante);
         })
         .catch(e => {
           console.log(e);
@@ -71,13 +71,17 @@ export default {
             "Retorno do seviço LivroDataService.list",
             response.status
           );
-          this.autor = response.data;
+         
+          this.livros = response.data;
         })
         .catch(response => {
           // error callback
           alert("Não conectou no serviço LivroDataService.list");
           console.log(response);
         });
+
+        console.log(this.livros);
+        console.log("chegou");
     },
     updateEstante() {
       EstanteDataService.update(this.currentEstante)
@@ -115,6 +119,7 @@ export default {
   mounted() {
     this.message = "";
     this.getEstante(this.$route.params.id);
+    this.listlivros()
   }
 };
 </script>

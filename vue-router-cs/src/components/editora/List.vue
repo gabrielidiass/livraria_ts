@@ -43,16 +43,16 @@
     <div class="col-md-6">
       <div v-if="currentEditora">
         <h4>Editoras</h4>
-        <div>
-          <label><strong>ID:</strong></label> {{ currentEditora.id }}
-        </div>
+        
         <div>
           <label><strong>Nome:</strong></label> {{ currentEditora.nome }}
         </div>
         <div>
           <label><strong>CNPJ</strong></label> {{ currentEditora.cnpj }}
         </div>
-
+        <div>
+          <label><strong>Livros</strong></label> {{ currentEditora.livros[0].nome }}
+        </div>
         <a
           class="badge badge-warning"
           :href="'/editora/update/' + currentEditora.id"
@@ -99,6 +99,7 @@ export default {
     setCurrentEditora(editora, index) {
       this.currentEditora = editora;
       this.currentIndex = index;
+
     },
     remeditora(editora) {
       EditoraDataService.delete(editora.id)
